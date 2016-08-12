@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+<h1>views/users/new.html</h1>
+
+<form class="form-horizontal" action="/users/create" method="post">
+    <fieldset>
+      <legend>Sign Up</legend>
+      <div class="form-group">
+        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+        <div>
+          <input name="email" type="text" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div>
+        <label for="inputPassword">Password</label>
+        <div>
+          <input name="password" type="password" id="inputPassword" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <button type="submit" class="btn btn-primary">Join!</button>
+        </div>
+      </div>
+    </fieldset>
+</form>
+
+</body>
+</html>
