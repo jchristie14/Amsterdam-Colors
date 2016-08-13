@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
 
+const https = require('https');
+
+
 
 
 
@@ -26,42 +29,49 @@ var pgp = require('pg-promise')();
 var db = pgp('postgres://johnchristie@localhost:5432/project_2_test');
 
 
-// app.get('/gallery', function (req, res){
-//   if(!req.session.user){
-//     res.redirect('sessions/new');
-//   } else {
-//     db.one('SELECT * FROM users WHERE id = 10').then(function(data){
-//         var user_data = {
-//           "users": data
-//         };
-//         console.log(user_data.users.id)
-//      res.render('gallery/gallery.html', {'email': req.session.user.email, user_data });
-//     })
 
-//   }
-// });  WORKS!!!!!!!!
 
 app.get('/gallery', function (req, res){
   if(!req.session.user){
     res.redirect('sessions/new');
   } else {
-    db.one('SELECT * FROM users WHERE id = 10').then(function(data){
-
-
+    var userNow = req.session.user;
+    db.one('SELECT * FROM users WHERE email = $1', [userNow.email]).then(function(data){
      res.render('gallery/gallery.html', {'email': req.session.user.email, data });
     })
 
   }
 });
 
-// app.get('/gallery/gallery/:id', function (req, res){
-//   var id = req.session.user;
-//   if(!req.session.user){
-//     res.redirect('sessions/new');
-//   } else {
-//     res.render('gallery/gallery.html', {'email':session.user.email });
-//   }
-// });
+
+
+app.get('/mygallery/:id', function(req, res){
+  var id = req.params.id;
+
+
+var key = 'XXXX';
+var color = '&#x23'
+var red = 'f.normalized32Colors.hex=&#x23ff0000'
+
+https.get("https://www.rijksmuseum.nl/api/en/collection/sk-c-5?key="+key+"&format=json&ps=80&", (res) => {
+  console.log('statusCode: ', res.statusCode);
+  console.log('headers: ', res.headers);
+
+  // res.on('data', (d) => {
+  //   process.stdout.write(d);
+  //   console.log('*****************'+d)
+  // });
+
+}).on('error', (e) => {
+  console.error(e);
+});
+
+  // db.one('SELECT * FROM apartments WHERE id = $1', [id]).then(function(data){
+    res.render('gallery/mygallery.html', data);
+  // });
+});
+
+
 
 app.use(flash());
 
