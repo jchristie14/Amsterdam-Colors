@@ -7,6 +7,10 @@ const flash = require('connect-flash');
 
 const https = require('https');
 
+require('dotenv').config();
+var request = require('request');
+
+
 
 
 
@@ -43,33 +47,47 @@ app.get('/gallery', function (req, res){
   }
 });
 
-
-
 app.get('/mygallery/:id', function(req, res){
   var id = req.params.id;
+  var key = process.env;
+  request("https://www.rijksmuseum.nl/api/en/collection/sk-c-5?key="+key+"&format=json&ps=80&", function (error, response, body) {
+    if (!error && response.statusCode ==200) {
+      var dataPic = JSON.parse(body);
+      console.log(Object.keys(dataPic))
+      console.log(dataPic.artObject.webImage.url)
+ res.render('gallery/mygallery.html', dataPic);
+    }
 
-
-var key = 'XXXX';
-var color = '&#x23'
-var red = 'f.normalized32Colors.hex=&#x23ff0000'
-
-https.get("https://www.rijksmuseum.nl/api/en/collection/sk-c-5?key="+key+"&format=json&ps=80&", (res) => {
-  console.log('statusCode: ', res.statusCode);
-  console.log('headers: ', res.headers);
-
-  // res.on('data', (d) => {
-  //   process.stdout.write(d);
-  //   console.log('*****************'+d)
-  // });
-
-}).on('error', (e) => {
-  console.error(e);
+  })
+  // res.render('gallery/mygallery.html', data);
 });
 
-  // db.one('SELECT * FROM apartments WHERE id = $1', [id]).then(function(data){
-    res.render('gallery/mygallery.html', data);
-  // });
-});
+
+AJAX request on my own server--a way to answer!!!
+
+// app.get('/mygallery/:id', function(req, res){
+//   var id = req.params.id;
+
+
+// var key = process.env.API_KEY;
+
+
+// https.get("https://www.rijksmuseum.nl/api/en/collection/sk-c-5?key="+key+"&format=json&ps=80&", (res) => {
+//   console.log('statusCode: ', res.statusCode);
+//   console.log('headers: ', res.headers);
+
+//   res.on('data', (d) => {
+//     process.stdout.write(d);
+//   });
+
+// }).on('error', (e) => {
+//   console.error(e);
+// });
+
+//   // db.one('SELECT * FROM apartments WHERE id = $1', [id]).then(function(data){
+//     res.render('gallery/mygallery.html');
+//   });
+
 
 
 
