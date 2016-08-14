@@ -42,53 +42,45 @@ app.get('/gallery', function (req, res){
     var userNow = req.session.user;
     db.one('SELECT * FROM users WHERE email = $1', [userNow.email]).then(function(data){
      res.render('gallery/gallery.html', {'email': req.session.user.email, data });
-    })
-
-  }
+    });
+  };
 });
 
 app.get('/mygallery/:id', function(req, res){
   var id = req.params.id;
-  var key = process.env;
-  request("https://www.rijksmuseum.nl/api/en/collection/sk-c-5?key="+key+"&format=json&ps=80&", function (error, response, body) {
-    if (!error && response.statusCode ==200) {
-      var dataPic = JSON.parse(body);
-      console.log(Object.keys(dataPic))
-      console.log(dataPic.artObject.webImage.url)
- res.render('gallery/mygallery.html', dataPic);
-    }
-
-  })
-  // res.render('gallery/mygallery.html', data);
-});
+ res.render('gallery/mygallery.html');
+    });
 
 
-AJAX request on my own server--a way to answer!!!
-
-// app.get('/mygallery/:id', function(req, res){
-//   var id = req.params.id;
 
 
-// var key = process.env.API_KEY;
 
 
-// https.get("https://www.rijksmuseum.nl/api/en/collection/sk-c-5?key="+key+"&format=json&ps=80&", (res) => {
-//   console.log('statusCode: ', res.statusCode);
-//   console.log('headers: ', res.headers);
-
-//   res.on('data', (d) => {
-//     process.stdout.write(d);
-//   });
-
-// }).on('error', (e) => {
-//   console.error(e);
-// });
-
-//   // db.one('SELECT * FROM apartments WHERE id = $1', [id]).then(function(data){
-//     res.render('gallery/mygallery.html');
-//   });
+var key = process.env.API_KEY;
+var nightW = 'sk-c-5'
+var paris ='RP-P-2013-39-2-2-18'
+var red = 'f.normalized32Colors.hex=&#x23ff0000'
 
 
+// var rijks = "https://www.rijksmuseum.nl/api/en/collection/?key="+key+"&format=json&ps=80&"+red
+
+var rijks = "https://www.rijksmuseum.nl/api/en/collection/?key="+key+"&format=json&ps=80&f.normalized32Colors.hex=%20%23"
+
+app.get('/api/:id',function(req,res){
+  var id = req.params.id;
+  console.log(rijks+id)
+  request(rijks+id, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      var rijksData = JSON.parse(body)
+      // console.log(pic.artObject.webImage.url)
+      res.send(rijksData);
+  //     id = req.params.id
+  // id = parseInt(id)-1
+  // console.log("Pokemon "+(id+1)+" is: "+pokemon[id])
+  // res.send(pokemon[id])
+};
+})
+})
 
 
 app.use(flash());

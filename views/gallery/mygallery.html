@@ -4,15 +4,33 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
     <h1>MY GALLERY!!</h1>
-    <h2>{{dataPic.artObject.webImage.url}}</h2>
 
-    <img src="{{dataPic.artObject}}"/>
+    <button id="nightWatch" type=""></button>
+
+  <form id="search">
+    <h1>Pick a Color!!</h1>
+    <select id="search-type">
+
+      <option id="yellow" value="FFEB00">Yellow</option>
+      <option id="blue" value="4019B1">Blue</option>
+
+      <option id="maroon" value="981313">Maroon</option>
+
+    </select>
+    <input id="submit" type="submit" value="Submit">
+  </form>
+
+  <ul></ul>
+
+
 
 
 </body>
+<script src="/js/jquery.js"></script>
+<script src="/js/script.js"></script>
 </html>
