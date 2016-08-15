@@ -55,7 +55,8 @@ app.get("/gallery/all", function(req, res){
     var gallery_data = {
       "gallery": data
     };
-    res.render('gallery/all.html', gallery_data);
+    // console.log(Object.keys(gallery_data.gallery));
+    res.render('gallery/all.html', {gallery_data});
   });
 });
 
@@ -101,8 +102,8 @@ app.get('/mygallery/selection/:id/:picid',function(req,res){
   request(rijksSel+picid+rijksEction, function (error, response, body){
     if (!error && response.statusCode ===200) {
       var selectData = JSON.parse(body);
-      console.log(selectData)
-      console.log(rijksSel+picid+rijksEction)
+      // console.log(selectData)
+      // console.log(rijksSel+picid+rijksEction)
        res.render('gallery/selection.html', {selectData, id, picid})
 
     }
@@ -126,29 +127,42 @@ app.get('/mygallery/selection/:id/:picid',function(req,res){
 // })
 
 
-app.post('/ngall', function(req, res){
+app.post('/ngall/:id', function(req, res){
+  var id = req.params.id
   console.log(req.body)
   npic = req.body
   npic.user_id = Number(npic.user_id);
   console.log(npic);
-  db.none('INSERT INTO gallery (user_id) VALUES ($1)', [npic.user_id]).then(function(){
-      res.send('OK')
+  db.none('INSERT INTO gallery (user_id, picid, picurl, hex1, hex2, hex3, hex4, hex5, hex6, hex7, hex8) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)', [npic.user_id,npic.picid,npic.picurl,npic.hex1,npic.hex2,npic.hex3,npic.hex4,npic.hex5,npic.hex6,npic.hex7,npic.hex8]).then(function(){
+      res.send('/mygallery/'+id);
     });
-});
+    });
 
-
+//, {'id':id}
+//WORKS
+// app.post('/ngall', function(req, res){
+//   console.log(req.body)
+//   npic = req.body
+//   npic.user_id = Number(npic.user_id);
+//   console.log(npic);
+//   db.none('INSERT INTO gallery (user_id, picid, picurl, hex1, hex2, hex3, hex4, hex5, hex6, hex7, hex8) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)', [npic.user_id,npic.picid,npic.picurl,npic.hex1,npic.hex2,npic.hex3,npic.hex4,npic.hex5,npic.hex6,npic.hex7,npic.hex8]).then(function(){
+//       res.send('gallery/gallery.html', {'id':id});
+//     });
+//     });
 
 
 
 
 //NOT FINISHED
-// app.delete('/users/:id',function(req,res){
-//   picid = req.params.id
-//   db.none("DELETE * FROM gallery WHERE id=$1",[picid]).then(function(data){
-//       console.log('delete done!!!!!')
-//       res.render('index')
-//     })
-// })
+app.delete('/delete/:id',function(req,res){
+  picid = req.params.id
+  console.log(picid)
+  db.none("DELETE FROM gallery WHERE picid=$1", [picid]).then(function(data){
+      console.log('delete done!!!!!')
+
+    })
+  res.send('/gallery/all')
+})
 
 
 

@@ -8,7 +8,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE gallery (
-  user_id INTEGER REFERENCES users(id) NOT NULL UNIQUE,
+  user_id INTEGER,
   picid VARCHAR(100),
   picurl VARCHAR (255),
   hex1 VARCHAR (100),
@@ -24,31 +24,31 @@ CREATE TABLE gallery (
 
 
 
-INSERT INTO users (email, password_digest) VALUES ('you@mail', 'npass');
-INSERT INTO users (email, password_digest) VALUES ('bob@mail', 'bpass');
-INSERT INTO users (email, password_digest) VALUES ('john@mail', 'jpass');
-INSERT INTO users (email, password_digest) VALUES ('pete@mail', 'ppass');
-INSERT INTO users (email, password_digest) VALUES ('annalisa@mail', 'apass');
+-- INSERT INTO users (email, password_digest) VALUES ('you@mail', 'npass');
+-- INSERT INTO users (email, password_digest) VALUES ('bob@mail', 'bpass');
+-- INSERT INTO users (email, password_digest) VALUES ('john@mail', 'jpass');
+-- INSERT INTO users (email, password_digest) VALUES ('pete@mail', 'ppass');
+-- INSERT INTO users (email, password_digest) VALUES ('annalisa@mail', 'apass');
 
-INSERT INTO gallery (user_id) VALUES (2);
+-- INSERT INTO gallery (user_id) VALUES (2);
 
-UPDATE gallery SET picid = 'NG-2010-40' WHERE user_id = 2;
+-- UPDATE gallery SET picid = 'NG-2010-40' WHERE user_id = 2;
 
-UPDATE gallery SET hex1 = '#080808', hex2 = '#9B947A', hex3 = '#6F5B37' hex4 = '#8F7B50' hex5 = '#493221' hex6 = '#C1AF70' WHERE user_id = 2;
+-- UPDATE gallery SET hex1 = '#080808', hex2 = '#9B947A', hex3 = '#6F5B37' hex4 = '#8F7B50' hex5 = '#493221' hex6 = '#C1AF70' WHERE user_id = 2;
 
-UPDATE gallery SET picid2 = 'AK-RBK-17521-A'  WHERE user_id = 2;
+-- UPDATE gallery SET picid2 = 'AK-RBK-17521-A'  WHERE user_id = 2;
 
-UPDATE gallery SET hex1 = '#3F568F', hex2 = '#E8E6DD' hex3 = '#0B1C51' hex4 = '#B9B08B' hex5 = '#707E7F' hex6 = '#453D37' hex7 = '#9D7941' WHERE user_id = 2;
---end bob
+-- UPDATE gallery SET hex1 = '#3F568F', hex2 = '#E8E6DD' hex3 = '#0B1C51' hex4 = '#B9B08B' hex5 = '#707E7F' hex6 = '#453D37' hex7 = '#9D7941' WHERE user_id = 2;
+-- --end bob
 
-INSERT INTO gallery (user_id) VALUES (3);
---end john
---start pete
-INSERT INTO gallery (user_id) VALUES (4);
+-- INSERT INTO gallery (user_id) VALUES (3);
+-- --end john
+-- --start pete
+-- INSERT INTO gallery (user_id) VALUES (4);
 
-UPDATE gallery SET picid = 'SK-A-1107' WHERE user_id = 4;
+-- UPDATE gallery SET picid = 'SK-A-1107' WHERE user_id = 4;
 
-UPDATE gallery SET hex1 = '#603926', hex2 = '#825C40', hex3 = '#9D8963', hex4 = '#CEB842', hex5 = '#D6AB7E', hex6 = '#EFE8A7', hex7 = '#F0DC5C' WHERE user_id = 4;
+-- UPDATE gallery SET hex1 = '#603926', hex2 = '#825C40', hex3 = '#9D8963', hex4 = '#CEB842', hex5 = '#D6AB7E', hex6 = '#EFE8A7', hex7 = '#F0DC5C' WHERE user_id = 4;
 
 -- UPDATE gallery SET picid2 = 'RP-P-AO-16-127-4'  WHERE user_id = 4;
 

@@ -9,14 +9,29 @@
 <body>
 
 <h1>ALL</h1>
-{{#gallery}}
+{{#gallery_data.gallery}}
+<div class="deletediv">
 <div>
-<h3>{{picid}}</h3>
-  <div class="swatch" style="background-color:{{hex1}}"></div>
-  <br>
-  <button class="deletepicture" data-id={{picid}}>DELETE</button>
+<img src="{{picurl}}"/>
 </div>
-{{/gallery}}
+<br>
+<!-- <h3>{{picid}}</h3> -->
+<div>
+  <div class="gswatch" style="background-color:{{hex1}}"></div>
+  <div class="gswatch" style="background-color:{{hex2}}"></div>
+  <div class="gswatch" style="background-color:{{hex3}}"></div>
+  <div class="gswatch" style="background-color:{{hex4}}"></div>
+  <div class="gswatch" style="background-color:{{hex5}}"></div>
+  <div class="gswatch" style="background-color:{{hex6}}"></div>
+  <div class="gswatch" style="background-color:{{hex7}}"></div>
+  <div class="gswatch" style="background-color:{{hex8}}"></div>
+</div>
+
+  <button class="deletepicture" data-id="{{picid}}">DELETE</button>
+</div>
+{{/gallery_data.gallery}}
 
 </body>
+<script src="/js/jquery.js"></script>
+<script src="/js/script.js"></script>
 </html>

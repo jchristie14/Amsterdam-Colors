@@ -36,3 +36,9 @@ ul {
   display: inline-block;
 }
 
+.gswatch {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+}
+

@@ -48,7 +48,7 @@ console.log("Linked!")
     var picid =$('h1').attr('data-titl');
     picid=picid.trim();
     var picurl = $('img').attr('src');
-    picurl=picurl.trim();
+    // picurl=picurl.trim();
     var hex1 = $('#1').attr('data-id');
     hex1=hex1.trim();
     var hex2 = $('#2').attr('data-id');
@@ -72,12 +72,12 @@ console.log("Linked!")
 
     console.log(nGall);
     $.ajax({
-      "url":"http://localhost:3000/ngall",
+      "url":"http://localhost:3000/ngall/"+user_id,
       "method":"POST",
       "data":nGall,
       "success": function(data){
         console.log('ajax call worked')
-        window.location.replace("http://localhost3000")
+        // window.location.replace("http://localhost3000")
       }
     })
 })
@@ -119,29 +119,24 @@ console.log("Linked!")
   //   })
   // })
 
-  // $('.deleteuser').on('click',function(e){
-  //   e.preventDefault()
-  //   id = $(this).attr('data-id')
-  //   div = $(this).parent()
-  //   $.ajax({
-  //     "url":"http://localhost:3000/users/"+id,
-  //     "method":"DELETE",
-  //     "success":function(){
-  //       $(div).remove()
-  //     }
-  //   })
-  // })
 
-// $.ajax({
-//   "type":"GET",
-//   "url":"",
-//     "success":function(data){
-//       console.log(data);
-//       var picture = data.artObjects[0].webImage.url;
-//       $('img').attr("src", picture);
-//     };
 
-// });
+  $('.deletepicture').on('click',function(e){
+    e.preventDefault()
+    var picid = $(this).attr('data-id')
+    var div = $(this).parent()
+    console.log(picid+"$"+div)
+    $.ajax({
+      "url":"http://localhost:3000/delete/"+picid,
+      "method":"DELETE",
+      "success":function(){
+        $(div).remove();
+        console.log('done')
+      }
+    })
+  })
+
+
 
 
 })();
