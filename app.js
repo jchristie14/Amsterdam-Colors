@@ -137,8 +137,12 @@ app.delete('/delete/:id',function(req,res){
 
 app.use(flash());
 
-app.listen(3000, function(){
-  console.log('Server up!')
+// app.listen(3000, function(){
+//   console.log('Server up!')
+// });
+app.set('port', (process.env.PORT || 5000));
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
 
 app.use(function(err, req, res, next){
