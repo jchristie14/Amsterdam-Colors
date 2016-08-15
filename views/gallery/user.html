@@ -14,13 +14,14 @@
     <li id="logoutli"><a href="/sessions/logout">Logout</a></li>
   </ul>
   </nav>
-<h1>USER</h1>
+<h1 id="usedelet" data-id="{{id}}">USER{{id}}</h1>
 {{#gallery_data.gallery}}
-<div class="deletediv">
 <div>
+<div class="deletediv">
+
 <button class="deletepicture" data-id="{{picid}}">DELETE</button>
 <img src="{{picurl}}"/>
-</div>
+
 <br>
 
 <div>
@@ -35,6 +36,7 @@
 </div>
 
 
+</div>
 </div>
 {{/gallery_data.gallery}}
 

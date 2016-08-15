@@ -39,14 +39,6 @@ console.log("Linked!")
 
 
 
-// $('#browsecolors').on('click', function(e){
-//   e.preventDefault();
-//   console.log("browsecolors")
-// })
-
-
-
-
   $('#addgall').on('click', function(e){
     e.preventDefault()
     var user_id=$('h1').attr('data-id');
@@ -84,47 +76,9 @@ console.log("Linked!")
       "data":nGall,
       "success": function(data){
         console.log('ajax call worked')
-        // window.location.replace("http://localhost3000")
       }
     })
 })
-  //   name = $(this).children('#name').val()
-  //   email = $(this).children('#email').val()
-  //   password = $(this).children('#password').val()
-
-  //   user = {name:name,email:email,password:password}
-  //   // debugger
-  //   $.ajax({
-  //     "url": "http://localhost:3000/users",
-  //     "method": "POST",
-  //     "data": user,
-  //     "success": function(data){
-  //       console.log('ajax call was good.')
-  //       window.location.replace("http://localhost:3000/users")
-  //     }
-  //   })
-  // })
-
-  //NOT FINISHED
-  // $('#edituser').on('submit',function(e){
-  //   console.log('omg you submitted brah')
-  //   e.preventDefault()
-
-  //   id = $(this).attr('data-id')
-  //   name = $(this).children('#name').val()
-  //   email = $(this).children('#email').val()
-  //   password = $(this).children('#password').val()
-
-  //   user = {id:id,name:name,email:email,password:password}
-  //   $.ajax({
-  //     "url":"http://localhost:3000/users/"+id,
-  //     "method":"PUT",
-  //     "data":user,
-  //     "success": function(data){
-  //       console.log('ajax call was good bro!')
-  //     }
-  //   })
-  // })
 
 
 
