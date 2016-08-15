@@ -10,9 +10,9 @@ console.log("Linked!")
 
   $('body').on("click", "#submit", function(e){
     e.preventDefault();
-    $('a').remove();
+    $('.pic').remove();
   var color = $('#search-type').val()
-  var user = $('ul').attr('data-id');
+  var user = $('#userul').attr('data-id');
   console.log(user)
 
     $.ajax({
@@ -24,13 +24,13 @@ console.log("Linked!")
         results.forEach(function(el){
           if (el.webImage === null){}
           else {
-          var $picDiv = $('<a href=selection/'+user+'/'+el.objectNumber+'><li></li></a>');
+          var $picDiv = $('<a class="pic" href=selection/'+user+'/'+el.objectNumber+'><li></li></a>');
           var picture = (el.webImage.url);
           var $img = $('<img>')
           $img.attr("src", picture);
           $picDiv.attr("id", el.objectNumber)
           $picDiv.append($img);
-          $('ul').append($picDiv)
+          $('#userul').append($picDiv)
         }
       })
       }

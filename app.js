@@ -50,13 +50,13 @@ app.get('/gallery', function (req, res){
   };
 });
 
-app.get("/gallery/all", function(req, res){
+app.get("/gallery/all/:id", function(req, res){
+  var id = req.params.id;
   db.any('SELECT * FROM gallery').then(function(data){
     var gallery_data = {
       "gallery": data
     };
-    // console.log(Object.keys(gallery_data.gallery));
-    res.render('gallery/all.html', {gallery_data});
+    res.render('gallery/all.html', {gallery_data, id});
   });
 });
 
@@ -66,7 +66,15 @@ app.get('/mygallery/:id', function(req, res){
  res.render('gallery/mygallery.html', {'id':id});
     });
 
-
+app.get("/gallery/user/:id", function(req, res){
+  var id = req.params.id;
+  db.any('SELECT * FROM gallery WHERE user_id=$1', [id]).then(function(data){
+    var gallery_data = {
+      "gallery": data
+    };
+    res.render('gallery/user.html', {gallery_data, id});
+  });
+});
 
 
 
