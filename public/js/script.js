@@ -39,6 +39,13 @@ console.log("Linked!")
 
 
 
+// $('#browsecolors').on('click', function(e){
+//   e.preventDefault();
+//   console.log("browsecolors")
+// })
+
+
+
 
   $('#addgall').on('click', function(e){
     e.preventDefault()

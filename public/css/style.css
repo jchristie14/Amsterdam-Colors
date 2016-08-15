@@ -42,3 +42,16 @@ ul {
   display: inline-block;
 }
 
+#browsecolors {
+  background-color: #a9a9a9;
+  display: inline-block;
+  float: left;
+
+}
+
+#browsegalls {
+  background-color: #a9a9a9;
+  display: inline-block;
+  float: left;
+}
+
