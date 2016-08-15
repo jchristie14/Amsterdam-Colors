@@ -44,6 +44,7 @@ console.log("Linked!")
     e.preventDefault()
     var user_id=$('h1').attr('data-id');
     user_id=user_id.trim();
+    user_id=Number(user_id)
     var picid =$('h1').attr('data-titl');
     picid=picid.trim();
     var picurl = $('img').attr('src');
@@ -72,10 +73,11 @@ console.log("Linked!")
     console.log(nGall);
     $.ajax({
       "url":"http://localhost:3000/ngall",
-      "method":"PUT",
-      "data": nGall,
+      "method":"POST",
+      "data":nGall,
       "success": function(data){
         console.log('ajax call worked')
+        window.location.replace("http://localhost3000")
       }
     })
 })

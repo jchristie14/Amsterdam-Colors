@@ -126,11 +126,14 @@ app.get('/mygallery/selection/:id/:picid',function(req,res){
 // })
 
 
-app.put('/ngall',function(req, res){
+app.post('/ngall', function(req, res){
   console.log(req.body)
   npic = req.body
-  db.none('UPDATE gallery SET picid=$1, hex1=$2 WHERE user_id =$4',[npic.picid,npic.picurl,npic.hex1,npic.user_id])
-  console.log('insert done.')
+  npic.user_id = Number(npic.user_id);
+  console.log(npic);
+  db.none('INSERT INTO gallery (user_id) VALUES ($1)', [npic.user_id]).then(function(){
+      res.send('OK')
+    });
 });
 
 
