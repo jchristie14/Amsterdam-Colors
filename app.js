@@ -12,7 +12,7 @@ var request = require('request');
 var key = process.env.API_KEY;
 
 var pgp = require('pg-promise')();
-var db = pgp('postgres://johnchristie@localhost:5432/test2');
+var db = pgp(process.env.DATABASE_URL);
 
 var rijks = "https://www.rijksmuseum.nl/api/en/collection/?key="+key+"&format=json&ps=80&f.normalized32Colors.hex=%20%23"
 
