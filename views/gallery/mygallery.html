@@ -5,16 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="/css/style.css">
-</head>
+<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+ --></head>
 <body>
-
-    <h1>MY GALLERY!!</h1>
-
-    <button id="nightWatch" type=""></button>
+<div class="selection"></div>
+<div class="container">
+    <h1>Select a search color</h1>
+ <h1>!!!{{id}}</h1>
 
   <form id="search">
-    <h1>Pick a Color!!</h1>
+    <h1>Once you've picked a color, click an image to see its pallette and decide whether to add it to the gallery</h1>
+
     <select id="search-type">
+
 
       <option id="yellow" value="FFEB00">Yellow</option>
       <option id="blue" value="4019B1">Blue</option>
@@ -25,11 +28,11 @@
     <input id="submit" type="submit" value="Submit">
   </form>
 
-  <ul></ul>
+  <ul data-id="{{id}}"></ul>
 
 
 
-
+</div>
 </body>
 <script src="/js/jquery.js"></script>
 <script src="/js/script.js"></script>

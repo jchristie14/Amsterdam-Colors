@@ -1,5 +1,5 @@
 const pgp = require('pg-promise')();
-const db = pgp('postgres://johnchristie@localhost:5432/project_2_test');
+const db = pgp('postgres://johnchristie@localhost:5432/test2');
 
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSalt(10);

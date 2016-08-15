@@ -9,9 +9,15 @@ const https = require('https');
 
 require('dotenv').config();
 var request = require('request');
+var key = process.env.API_KEY;
 
+var pgp = require('pg-promise')();
+var db = pgp('postgres://johnchristie@localhost:5432/test2');
 
+var rijks = "https://www.rijksmuseum.nl/api/en/collection/?key="+key+"&format=json&ps=80&f.normalized32Colors.hex=%20%23"
 
+var rijksSel = "https://www.rijksmuseum.nl/api/en/collection/"
+var rijksEction = "?key="+key+"&format=json"
 
 
 
@@ -29,8 +35,6 @@ app.use(session({
   cookie: { secure: false }
 }));
 
-var pgp = require('pg-promise')();
-var db = pgp('postgres://johnchristie@localhost:5432/project_2_test');
 
 
 
@@ -46,41 +50,106 @@ app.get('/gallery', function (req, res){
   };
 });
 
+app.get("/gallery/all", function(req, res){
+  db.any('SELECT * FROM gallery').then(function(data){
+    var gallery_data = {
+      "gallery": data
+    };
+    res.render('gallery/all.html', gallery_data);
+  });
+});
+
 app.get('/mygallery/:id', function(req, res){
   var id = req.params.id;
- res.render('gallery/mygallery.html');
+  console.log(id)
+ res.render('gallery/mygallery.html', {'id':id});
     });
 
 
 
 
 
-
-var key = process.env.API_KEY;
-var nightW = 'sk-c-5'
-var paris ='RP-P-2013-39-2-2-18'
-var red = 'f.normalized32Colors.hex=&#x23ff0000'
-
-
-// var rijks = "https://www.rijksmuseum.nl/api/en/collection/?key="+key+"&format=json&ps=80&"+red
-
-var rijks = "https://www.rijksmuseum.nl/api/en/collection/?key="+key+"&format=json&ps=80&f.normalized32Colors.hex=%20%23"
-
-app.get('/api/:id',function(req,res){
-  var id = req.params.id;
-  console.log(rijks+id)
-  request(rijks+id, function (error, response, body) {
+app.get('/api/:color',function(req,res){
+  var color = req.params.color;
+  request(rijks+color, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       var rijksData = JSON.parse(body)
-      // console.log(pic.artObject.webImage.url)
       res.send(rijksData);
-  //     id = req.params.id
-  // id = parseInt(id)-1
-  // console.log("Pokemon "+(id+1)+" is: "+pokemon[id])
-  // res.send(pokemon[id])
 };
 })
 })
+
+// app.get('/api/:picid',function(req,res){
+//   var picid = req.params.picid;
+//   request(rijksSel+picid+rijksEction, function (error, response, body){
+//     if (!error && response.statusCode ===200) {
+//       var selectData = JSON.parse(body);
+//       console.log(selectData)
+//       console.log(rijksSel+picid+rijksEction)
+//        res.sendrender(selectData)
+
+//     }
+
+// })
+// })
+
+app.get('/mygallery/selection/:id/:picid',function(req,res){
+  var id = req.params.id;
+  var picid = req.params.picid;
+
+  console.log("*****"+picid)
+  request(rijksSel+picid+rijksEction, function (error, response, body){
+    if (!error && response.statusCode ===200) {
+      var selectData = JSON.parse(body);
+      console.log(selectData)
+      console.log(rijksSel+picid+rijksEction)
+       res.render('gallery/selection.html', {selectData, id, picid})
+
+    }
+
+})
+})
+
+// app.put('/users/:id',function(req,res){
+//   user = req.body
+//   db.none("UPDATE users SET name=$1, email=$2, password=$3 WHERE id=$4",
+//     [user.name,user.email,user.password,user.id]).then(function(data){
+//       console.log('update done!')
+//       res.json(user)
+//     })
+// })
+
+
+
+// app.get('/create',function(req,res){
+//   res.render('create')
+// })
+
+
+app.put('/ngall',function(req, res){
+  console.log(req.body)
+  npic = req.body
+  db.none('UPDATE gallery SET picid=$1, hex1=$2 WHERE user_id =$4',[npic.picid,npic.picurl,npic.hex1,npic.user_id])
+  console.log('insert done.')
+});
+
+
+
+
+
+
+//NOT FINISHED
+// app.delete('/users/:id',function(req,res){
+//   picid = req.params.id
+//   db.none("DELETE * FROM gallery WHERE id=$1",[picid]).then(function(data){
+//       console.log('delete done!!!!!')
+//       res.render('index')
+//     })
+// })
+
+
+
+
 
 
 app.use(flash());

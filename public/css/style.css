@@ -1,3 +1,7 @@
+body {
+  background-image: url(/images/background.jpg);
+}
+
 img {
   height: 15%;
   width: 15%;
@@ -14,5 +18,21 @@ li {
 
 ul {
   list-style-type: none;
+}
+
+.swatch {
+  height: 50px;
+  width: 50px;
+}
+
+.selection {
+  width: 60vw;
+  float: left;
+}
+
+.selectSwatch {
+  width: 15vw;
+  height: 15vw;
+  display: inline-block;
 }
 
