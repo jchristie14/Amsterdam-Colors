@@ -16,7 +16,7 @@ console.log("Linked!")
   console.log(user)
 
     $.ajax({
-      'url':'http://localhost:3000/api/'+color,
+      'url':'/api/'+color,
       'method':'GET',
       'success':function(data){
         console.log(data)
@@ -69,12 +69,12 @@ console.log("Linked!")
 
     console.log(nGall);
     $.ajax({
-      "url":"http://localhost:3000/ngall/"+user_id,
+      "url":"/ngall/"+user_id,
       "method":"POST",
       "data":nGall,
       "success": function(data){
         console.log('ajax call worked')
-        location.href="http://localhost:3000/user/"+user_id
+        location.href="/user/"+user_id
       }
     })
 
@@ -88,7 +88,7 @@ console.log("Linked!")
     var div = $(this).parent()
     console.log(picid+"$"+div)
     $.ajax({
-      "url":"http://localhost:3000/delete/"+picid,
+      "url":"/delete/"+picid,
       "method":"DELETE",
       "success":function(){
         $(div).remove();
