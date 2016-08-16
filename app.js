@@ -12,8 +12,8 @@ var request = require('request');
 var key = process.env.API_KEY;
 
 var pgp = require('pg-promise')();
-//const db = pgp('postgres://johnchristie@localhost:5432/test2');
-const db = pgp(process.env.DATABASE_URL)
+const db = pgp('postgres://johnchristie@localhost:5432/test2');
+// const db = pgp(process.env.DATABASE_URL)
 
 var rijks = "https://www.rijksmuseum.nl/api/en/collection/?key="+key+"&format=json&ps=80&f.normalized32Colors.hex=%20%23"
 
@@ -137,13 +137,13 @@ app.delete('/delete/:id',function(req,res){
 
 app.use(flash());
 
-// app.listen(3000, function(){
-//   console.log('Server up!')
-// });
-app.set('port', (process.env.PORT || 5000));
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+app.listen(3000, function(){
+  console.log('Server up!')
 });
+// app.set('port', (process.env.PORT || 5000));
+// app.listen(app.get('port'), function() {
+//   console.log('Node app is running on port', app.get('port'));
+// });
 
 app.use(function(err, req, res, next){
   res.status(err.status || 500);

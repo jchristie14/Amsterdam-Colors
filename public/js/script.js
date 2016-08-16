@@ -47,9 +47,7 @@ console.log("Linked!")
     var picid =$('h1').attr('data-titl');
     picid=picid.trim();
     var picurl = $('img').attr('src');
-    // picurl=picurl.trim();
     var hex1 = $('#1').attr('data-id');
-    hex1=hex1.trim();
     var hex2 = $('#2').attr('data-id');
     var hex3 = $('#3').attr('data-id');
     var hex4 = $('#4').attr('data-id');
