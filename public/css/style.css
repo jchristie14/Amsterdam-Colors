@@ -43,6 +43,7 @@ nav li {
   width: 16vw;
   height: 5vw;
   padding-top: 3vw;
+  padding-bottom: 2vw;
   text-align: center;
 }
 
@@ -57,6 +58,18 @@ nav ul li:last-child {
 }
 
 nav li:hover {
+  background-color: #d3d3d3;
+}
+
+#indexlink {
+  color: purple;
+}
+
+h3 a {
+  color: purple
+}
+
+#indexlink:hover {
   background-color: #d3d3d3;
 }
 
