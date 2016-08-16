@@ -46,7 +46,7 @@ ul {
   display: inline-block;
 }
 
-#browsecolors {
+/* #browsecolors {
   background-color: #a9a9a9;
   display: inline-block;
   float: left;
@@ -77,9 +77,21 @@ ul {
   float: left;
   width: 15vw;
   height: 15vw;
+} */
+
+.swatchwithhex {
+  display: inline-block;
 }
 
-.gallswatches {
+nav li {
+  background-color: #a9a9a9;
   display: inline-block;
+  float: left;
+  width: 15vw;
+  height: 15vw;
+}
+
+.container {
+  margin: 5vw 20vw 0vw 20vw;
 }
 
