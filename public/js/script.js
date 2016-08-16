@@ -5,9 +5,6 @@ console.log("Linked!")
 
 
 
-// $('#nightWatch').on('click',function(e){
-//   e.preventDefault();
-
   $('body').on("click", "#submit", function(e){
     e.preventDefault();
     $('.pic').remove();
