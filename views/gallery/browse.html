@@ -5,12 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="/css/style.css">
-<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
- --></head>
+</head>
 <body>
+<header>
+  <div id="logo">
+    <p>AMSTERDAM COLORS</p>
+  </div>
+</header>
+
   <nav>
     <ul class="nav">
-      <li id="browsecolors"><a href="/mygallery/{{id}}">Browse colors</a></li>
       <li id="browsegalls"><a href="/gallery/all/{{id}}">Browse galleries</a></li>
       <li id="browseuser"><a href="/user/{{id}}">Browse your gallery</a></li>
       <li id="logoutli"><a href="/sessions/logout">Logout</a></li>
@@ -19,10 +23,9 @@
 <div class="selection"></div>
 <div class="container">
     <h1>Select a search color</h1>
- <h1>!!!{{id}}</h1>
+<!--  <h1>!!!{{id}}</h1> -->
 
   <form id="search">
-    <h1>Once you've picked a color, click an image to see its pallette and decide whether to add it to the gallery</h1>
 
     <select id="search-type">
 
@@ -36,7 +39,11 @@
     <input id="submit" type="submit" value="Submit">
   </form>
 
+      <h1>Once you've picked a color, click an image to see its palette and decide whether to add it to the gallery</h1>
+
+<div class="browsegal">
   <ul id="userul" data-id="{{id}}"></ul>
+</div>
 
 
 

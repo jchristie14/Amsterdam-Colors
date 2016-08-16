@@ -7,19 +7,26 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<header>
+  <div id="logo">
+    <p>AMSTERDAM COLORS</p>
+  </div>
+</header>
   <nav>
     <ul class="nav">
-      <li id="browsecolors"><a href="/mygallery/{{id}}">Browse colors</a></li>
+      <li id="browsecolors"><a href="/browse/{{id}}">Browse colors</a></li>
       <li id="browsegalls"><a href="/gallery/all/{{id}}">Browse galleries</a></li>
       <li id="logoutli"><a href="/sessions/logout">Logout</a></li>
     </ul>
   </nav>
-<h1 id="usedelet" data-id="{{id}}">USER{{id}}</h1>
+
+<div class="container">
+<h1 id="usedelet" data-id="{{id}}">These are the objects and palettes that you selected</h1>
+
 {{#gallery_data.gallery}}
-<div>
 <div class="deletediv">
 
-<button class="deletepicture" data-id="{{picid}}">DELETE</button>
+<button class="deletepicture" data-id="{{picid}}">remove</button>
 <img src="{{picurl}}"/>
 
 <br>
@@ -37,8 +44,8 @@
 
 
 </div>
-</div>
 {{/gallery_data.gallery}}
+</div>
 
 </body>
 <script src="/js/jquery.js"></script>

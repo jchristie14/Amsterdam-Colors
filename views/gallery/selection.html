@@ -7,27 +7,33 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<header>
+  <div id="logo">
+    <p>AMSTERDAM COLORS</p>
+  </div>
+</header>
   <nav>
     <ul class="nav">
-      <li id="browsecolors"><a href="/mygallery/{{id}}">Browse colors</a></li>
+      <li id="browsecolors"><a href="/browse/{{id}}">Browse colors</a></li>
       <li id="browsegalls"><a href="/gallery/all/{{id}}">Browse galleries</a></li>
       <li id="browseuser"><a href="/user/{{id}}">Browse your gallery</a></li>
       <li id="logoutli"><a href="/sessions/logout">Logout</a></li>
     </ul>
   </nav>
-  <h1 data-id="{{id}}" data-titl={{picid}}>Add to gallery?</h1>
-  <button id="addgall" type="submit">ADD</button>
-  <div>
-    <img class ="selection" src="{{selectData.artObject.webImage.url}}"/>
-    <div id="1" data-id="{{selectData.artObject.colors.0}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.0}}"></div>
-    <div id="2" data-id="{{selectData.artObject.colors.1}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.1}}"></div>
-    <div id="3" data-id="{{selectData.artObject.colors.2}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.2}}"></div>
-    <div id="4" data-id="{{selectData.artObject.colors.3}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.3}}"></div>
-    <div id="5" data-id="{{selectData.artObject.colors.4}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.4}}"></div>
-    <div id="6" data-id="{{selectData.artObject.colors.5}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.5}}"></div>
-    <div id="7" data-id="{{selectData.artObject.colors.6}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.6}}"></div>
-    <div id="8" data-id="{{selectData.artObject.colors.7}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.7}}"></div>
-
+  <div class="container">
+    <h1 data-id="{{id}}" data-titl={{picid}}>Click below if you'd like to add this item to your gallery</h1>
+    <button id="addgall" type="submit">ADD TO GALLERY</button>
+    <div id="selectionimages">
+      <div id="1" data-id="{{selectData.artObject.colors.0}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.0}}"></div>
+      <div id="2" data-id="{{selectData.artObject.colors.1}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.1}}"></div>
+      <div id="3" data-id="{{selectData.artObject.colors.2}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.2}}"></div>
+      <div id="4" data-id="{{selectData.artObject.colors.3}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.3}}"></div>
+      <div id="5" data-id="{{selectData.artObject.colors.4}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.4}}"></div>
+      <div id="6" data-id="{{selectData.artObject.colors.5}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.5}}"></div>
+      <div id="7" data-id="{{selectData.artObject.colors.6}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.6}}"></div>
+      <div id="8" data-id="{{selectData.artObject.colors.7}}" class ="selectSwatch" style="background-color:{{selectData.artObject.colors.7}}"></div>
+      <img class ="selection" src="{{selectData.artObject.webImage.url}}"/>
+    </div>
   </div>
 </body>
 <script src="/js/jquery.js"></script>

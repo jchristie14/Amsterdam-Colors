@@ -2,25 +2,67 @@ body {
   background-image: url(/images/background.jpg);
 }
 
-img {
-  height: 15%;
-  width: 15%;
+#logo {
+  text-align: center;
+  font-size: 36pt;
+  background-color: #080808;
+  color: white;
+  margin: -5vw -5vw 0 -5vw;
+  padding: 2vw;
+  padding-top: 5vw;
+}
+
+header {
+  background-color: #080808;
+}
+
+
+
+a {
+  text-decoration: none;
+  color: #080808;
+}
+
+nav {
+  margin: 0vw 10vw 5vw 10vw;
+
+}
+
+nav li {
+  background-color: #a9a9a9;
+  display: inline-block;
+  float: left;
+  width: 15vw;
+  height: 5vw;
+  padding-top: 3vw;
+  text-align: center;
+}
+
+nav li:hover {
+  background-color: #d3d3d3;
+}
+
+.container {
+  margin: 12vw 10vw 0vw 10vw;
+  clear: both;
 }
 
 h1 {
   clear: both;
 }
-/* ul {
-  list-style: none;
-} */
 
-li {
-  display: inline-block;
-  float: left;
+img {
+  height: 15%;
+  width: 15%;
 }
 
 ul {
   list-style-type: none;
+}
+
+li {
+  display: inline-block;
+  float: left;
 }
 
 .swatch {
@@ -28,16 +70,35 @@ ul {
   width: 50px;
 }
 
+.gallunit {
+  margin: 0 auto;
+}
+
+.gallunit2 {
+  margin: 0 auto;
+}
+
+.browsegal {
+  flex-wrap: wrap;
+}
+
+#addgall {
+  margin: auto;
+}
+
 .selection {
   width: 60vw;
   float: left;
   clear: both;
+  margin-top: -10vw;
 }
 
 .selectSwatch {
-  width: 15vw;
-  height: 15vw;
-  display: inline-block;
+  width: 10vw;
+  height: 10vw;
+  display: block;
+  float: right;
+  margin-bottom: 0;
 }
 
 .gswatch {
@@ -46,52 +107,15 @@ ul {
   display: inline-block;
 }
 
-/* #browsecolors {
-  background-color: #a9a9a9;
-  display: inline-block;
-  float: left;
-  width: 15vw;
-  height: 15vw;
-
+#selectionimages {
+  margin-top: 5vw
 }
-
-#browsegalls {
-  background-color: #a9a9a9;
-  display: inline-block;
-  float: left;
-  width: 15vw;
-  height: 15vw;
-}
-
-#browseuser {
-  background-color: #a9a9a9;
-  display: inline-block;
-  float: left;
-  width: 15vw;
-  height: 15vw;
-}
-
-#logoutli {
-  background-color: #a9a9a9;
-  display: inline-block;
-  float: left;
-  width: 15vw;
-  height: 15vw;
-} */
 
 .swatchwithhex {
   display: inline-block;
 }
 
-nav li {
-  background-color: #a9a9a9;
-  display: inline-block;
-  float: left;
-  width: 15vw;
-  height: 15vw;
-}
 
-.container {
-  margin: 5vw 20vw 0vw 20vw;
-}
+
+
 

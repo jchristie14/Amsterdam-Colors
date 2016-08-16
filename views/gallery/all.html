@@ -7,37 +7,36 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<header>
+  <div id="logo">
+    <p>AMSTERDAM COLORS</p>
+  </div>
+</header>
   <nav>
     <ul class="nav">
-      <li id="browsecolors"><a href="/mygallery/{{id}}">Browse colors</a></li>
+      <li id="browsecolors"><a href="/browse/{{id}}">Browse colors</a></li>
       <li id="browseuser"><a href="/user/{{id}}">Browse your gallery</a></li>
       <li id="logoutli"><a href="/sessions/logout">Logout</a></li>
     </ul>
   </nav>
-<h1>ALL</h1>
+<div class="container">
+  <h1>Browse items and palettes that other people have selected</h1>
 {{#gallery_data.gallery}}
-<!-- <div class="deletediv"> -->
-<div>
-<!-- <button class="deletepicture" data-id="{{picid}}">DELETE</button> -->
-<img src="{{picurl}}"/>
+  <div class="gallunit">
+    <img src="{{picurl}}"/>
+    <br>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex1}}"></div><br/><p>{{hex1}}</p></div>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex2}}"></div><br/><p>{{hex2}}</p></div>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex3}}"></div><br/><p>{{hex3}}</p></div>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex4}}"></div><br/><p>{{hex4}}</p></div>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex5}}"></div><br/><p>{{hex5}}</p></div>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex6}}"></div><br/><p>{{hex6}}</p></div>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex7}}"></div><br/><p>{{hex7}}</p></div>
+    <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex8}}"></div><br/><p>{{hex8}}</p></div>
+  </div>
 
-<br>
-
-<div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex1}}"></div><br/><p>{{hex1}}</p></div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex2}}"></div><br/><p>{{hex2}}</p></div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex3}}"></div><br/><p>{{hex3}}</p></div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex4}}"></div><br/><p>{{hex4}}</p></div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex5}}"></div><br/><p>{{hex5}}</p></div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex6}}"></div><br/><p>{{hex6}}</p></div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex7}}"></div><br/><p>{{hex7}}</p></div>
-  <div class="swatchwithhex"><div class="gswatch" style="background-color:{{hex8}}"></div><br/><p>{{hex8}}</p></div>
-</div>
-</div>
-
-<!-- </div> -->
 {{/gallery_data.gallery}}
-
+</div>
 </body>
 <script src="/js/jquery.js"></script>
 <script src="/js/script.js"></script>

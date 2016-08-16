@@ -74,8 +74,10 @@ console.log("Linked!")
       "data":nGall,
       "success": function(data){
         console.log('ajax call worked')
+        location.href="http://localhost:3000/user/"+user_id
       }
     })
+
 })
 
 
@@ -91,6 +93,7 @@ console.log("Linked!")
       "success":function(){
         $(div).remove();
         console.log('done')
+
       }
     })
   })
