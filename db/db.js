@@ -1,6 +1,6 @@
 const pgp = require('pg-promise')();
-// const db = pgp('postgres://johnchristie@localhost:5432/test2');
-const db = pgp(process.env.DATABASE_URL)
+const db = pgp('postgres://johnchristie@localhost:5432/test2');
+// const db = pgp(process.env.DATABASE_URL)
 
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSalt(10);
@@ -49,7 +49,7 @@ var create_user = function(req, res, next){
       "INSERT INTO users (email, password_digest) VALUES ($1, $2)",
       [email, hashed_password]
       ).catch(function(){
-        res.error = 'Error. User could not be created.';
+        res.error = ' User could not be created.';
         next();
       }).then(function(user){
         req.session.user = {

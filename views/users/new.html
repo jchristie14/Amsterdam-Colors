@@ -14,7 +14,13 @@
 </header>
 
 <div class="container">
-<h1>views/users/new.html</h1>
+<!-- <h1>views/users/new.html</h1>
+ -->
+            {{#error}}
+            <div>
+              <strong>Sorry, this username and password combination is taken.<strong> {{error}}
+            </div>
+            {{/error}}
 
 <form class="form-horizontal" action="/users/create" method="post">
     <fieldset>
